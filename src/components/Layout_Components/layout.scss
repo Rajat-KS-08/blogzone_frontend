@@ -36,7 +36,10 @@
     }
 
     .navbar-search-input {
-      width: 200px;
+      width: 250px;
+      background-color: $light-theme-input-bg;
+      border-radius: 50px;
+      border: 1px solid $dark-theme-input-bg;
     }
   }
 
@@ -67,6 +70,19 @@
           color: $primary-red-color;
           font-size: 16px;
         }
+      }
+    }
+
+    .logout-button {
+      font-family: $primary-font;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 50px;
+      background-color: $primary-red-color !important;
+
+      &:hover {
+        background-color: $bright-blue-color !important;
+        color: $white-color;
       }
     }
   }

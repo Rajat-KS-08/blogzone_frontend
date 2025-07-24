@@ -77,6 +77,7 @@ const Navbar = () => {
             icon={<LogoutOutlined />}
             onClick={handleLogout}
             danger
+            className="logout-button"
           >
             Logout
           </Button>
