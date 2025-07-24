@@ -1,0 +1,115 @@
+//Imports
+@use "../../_variables" as *;
+
+.global-layout {
+  height: 100vh;
+  width: 100vw;
+  background-color: $white-color; // ✅ or a suitable color
+  overflow-x: hidden;
+
+  .outlet-layout {
+    padding: 24px;
+    background-color: $white-color; // ✅ or your theme color
+  }
+}
+
+//Navbar styles
+.navbar {
+  display: flex;
+  flex-wrap: wrap; // ✅ allows wrapping
+  align-items: center;
+  justify-content: space-between;
+  background-color: $primary-theme-color;
+  padding-inline: 20px; // ✅ fixed px value
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 0% 3% !important;
+
+  .left-items {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1 1 auto;
+
+    img {
+      height: 40px;
+      scale: 2;
+    }
+
+    .navbar-search-input {
+      width: 200px;
+    }
+  }
+
+  .right-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    flex: 0 1 auto;
+
+    .nav-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background-color: transparent;
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-family: $primary-font;
+        font-size: 16px;
+        font-weight: 700;
+        color: $navbar-text-color;
+
+        .anticon {
+          color: $white-color;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .mobile-nav-toggle {
+    display: none;
+    color: $white-color;
+    font-size: 1.5rem;
+    outline: none !important;
+    box-shadow: none !important;
+
+    &:focus {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .right-items.desktop-nav {
+      display: none;
+    }
+
+    .mobile-nav-toggle {
+      display: block;
+      span {
+        display: flex;
+      }
+    }
+  }
+}
+
+// Drawer Menu
+.drawer-menu {
+  .ant-menu-item {
+    font-family: $primary-font;
+    font-size: 16px;
+
+    a {
+      color: $primary-red-color;
+    }
+
+    .anticon {
+      color: $primary-theme-color;
+    }
+  }
+}
