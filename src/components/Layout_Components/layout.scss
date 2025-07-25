@@ -19,7 +19,7 @@
   flex-wrap: wrap; // ✅ allows wrapping
   align-items: center;
   justify-content: space-between;
-  background-color: $primary-theme-color;
+  background-color: $dark-theme-bg;
   padding-inline: 20px; // ✅ fixed px value
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 0% 3% !important;
@@ -64,7 +64,7 @@
         font-family: $primary-font;
         font-size: 16px;
         font-weight: 700;
-        color: $navbar-text-color;
+        color: $fb-theme-blue;
 
         .anticon {
           color: $primary-red-color;

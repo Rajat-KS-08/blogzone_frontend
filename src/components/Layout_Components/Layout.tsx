@@ -8,7 +8,7 @@ const AppLayout: React.FC = () => {
   return (
     <Layout className="global-layout" style={{ minHeight: "100vh" }}>
       <Navbar />
-      <Layout.Content className="outlet-layout" style={{ padding: "24px" }}>
+      <Layout.Content className="outlet-layout" style={{ padding: "0px" }}>
         <Outlet />
       </Layout.Content>
     </Layout>

@@ -1,0 +1,237 @@
+//Imports
+@use "../../_variables" as *;
+
+//Home Page's Left Section Styles
+.left-home-section {
+  background-color: $fb-theme-blue;
+  .left-home-section-contents {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .home-page-avatar {
+      margin-bottom: 20px;
+    }
+
+    .user-name,
+    .profile-name {
+      font-family: $secondary-font;
+      font-size: 18px;
+      color: $sidebar-font-color;
+      font-weight: 700;
+      margin-bottom: 5px !important;
+    }
+
+    .user-bio {
+      font-family: $primary-font;
+      font-size: 16px;
+      color: $navbar-text-color;
+      font-weight: 500;
+      text-align: center;
+      max-width: 220px;
+    }
+
+    .home-profile-btns {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Button base style */
+    .home-profile-btns .ant-btn {
+      border-radius: 24px;
+      font-family: $secondary-font;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 20px;
+      height: 40px;
+      width: 160px;
+      box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+        rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+      transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* Individual button colors */
+    .edit-btn {
+      background-color: #fff;
+      color: #333;
+    }
+
+    .edit-btn:hover {
+      background-color: #f1f1f1;
+      color: #000;
+    }
+
+    .fav-posts-btn {
+      background-color: #a3f7bf;
+      color: #333;
+    }
+
+    .fav-posts-btn:hover {
+      background-color: $blue-green-color;
+      color: #000;
+    }
+
+    .my-posts-btn {
+      background-color: #e0f7fa;
+      color: #333;
+    }
+
+    .my-posts-btn:hover {
+      background-color: #b2ebf2;
+      color: #000;
+    }
+  }
+}
+
+// Home Page's Right Section Styles
+.right-home-section {
+  padding: 1% 5%;
+  .right-home-section-contents {
+    .posts-container {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+
+      .post-textarea {
+        background-color: $light-theme-bg;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+          rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        font-family: $secondary-font;
+        font-size: 14px;
+        color: $dark-theme-input-bg;
+        font-weight: 400;
+
+        &::placeholder {
+          font-family: $primary-font;
+          font-size: 14px;
+          color: $dark-theme-bg;
+          opacity: 0.4;
+        }
+      }
+
+      .post-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .character-left {
+          font-family: $primary-font;
+          font-size: 10px;
+          color: $bright-orange-color;
+          font-weight: 400;
+        }
+
+        // Button styles
+        .upload-btn {
+          background-color: #e1ecf4;
+          border-radius: 3px;
+          border: 1px solid #7aa7c7;
+          box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+          color: #39739d;
+          font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+            sans-serif;
+          font-size: 13px;
+          padding: 8px 0.8em;
+          transition: all 0.2s ease;
+        }
+
+        .upload-btn:hover,
+        .upload-btn:focus {
+          background-color: #b3d3ea;
+          color: #2c5777;
+          border-color: #5c94b6;
+        }
+
+        .upload-btn:focus {
+          box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+        }
+
+        .upload-btn:active {
+          background-color: #a0c7e4;
+          box-shadow: none;
+          color: #2c5777;
+        }
+
+        .post-blog-btn {
+          background-color: #d1f5d3;
+          border-radius: 3px;
+          border: 1px solid #81c784;
+          box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+          color: #2e7d32;
+          font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+            sans-serif;
+          font-size: 13px;
+          padding: 8px 0.8em;
+          transition: all 0.2s ease;
+        }
+
+        .post-blog-btn:hover,
+        .post-blog-btn:focus {
+          background-color: #b2ebc5;
+          color: #1b5e20;
+          border-color: #66bb6a;
+        }
+
+        .post-blog-btn:focus {
+          box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
+        }
+
+        .post-blog-btn:active {
+          background-color: #a5d6a7;
+          box-shadow: none;
+          color: #1b5e20;
+        }
+
+        .emoji-btn {
+          background-color: #e1ecf4;
+          border-radius: 3px;
+          border: 1px solid #7aa7c7;
+          box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+          box-sizing: border-box;
+          color: #39739d;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+            sans-serif;
+          font-size: 13px;
+          font-weight: 400;
+          line-height: 1.15;
+          margin: 0;
+          outline: none;
+          padding: 8px 0.8em;
+          text-align: center;
+          text-decoration: none;
+          user-select: none;
+          touch-action: manipulation;
+          vertical-align: middle;
+          white-space: nowrap;
+          transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .emoji-btn:hover,
+        .emoji-btn:focus {
+          background-color: #b3d3ea;
+          color: #2c5777;
+        }
+
+        .emoji-btn:focus {
+          box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+        }
+
+        .emoji-btn:active {
+          background-color: #a0c7e4;
+          box-shadow: none;
+          color: #2c5777;
+        }
+      }
+    }
+  }
+}
