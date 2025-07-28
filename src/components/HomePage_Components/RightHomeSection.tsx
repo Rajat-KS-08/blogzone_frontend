@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Input, Button, Modal } from "antd";
 import { UploadOutlined, SendOutlined, SmileOutlined } from "@ant-design/icons";
 import EmojiPicker, { type EmojiClickData } from "emoji-picker-react";
+import BlogFeeds from "./BlogFeeds";
 import "./homePage.scss";
 
 const { TextArea } = Input;
@@ -16,6 +17,7 @@ const RightHomeSection: React.FC = () => {
 
   return (
     <div className="right-home-section-contents">
+      {/* Post Input Container */}
       <div className="posts-container">
         <TextArea
           value={postContent}
@@ -48,6 +50,11 @@ const RightHomeSection: React.FC = () => {
         </div>
       </div>
 
+      {/* Blog Feeds Section */}
+      <div className="feeds-container">
+        <BlogFeeds />
+      </div>
+
       {/* Emoji Picker Modal */}
       <Modal
         open={isEmojiModalOpen}
@@ -59,8 +66,6 @@ const RightHomeSection: React.FC = () => {
       >
         <EmojiPicker onEmojiClick={handleEmojiClick} />
       </Modal>
-
-      <div className="feeds-container"></div>
     </div>
   );
 };

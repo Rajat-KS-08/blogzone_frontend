@@ -92,10 +92,14 @@
 .right-home-section {
   padding: 1% 5%;
   .right-home-section-contents {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     .posts-container {
       display: flex;
       flex-direction: row;
       gap: 10px;
+      flex: 0 0 30%;
 
       .post-textarea {
         background-color: $light-theme-bg;
@@ -231,6 +235,18 @@
           box-shadow: none;
           color: #2c5777;
         }
+      }
+    }
+
+    .feeds-container {
+      flex: 0 0 70%;
+      background-color: $light-theme-bg;
+      border-radius: 8px;
+      overflow-y: scroll;
+
+      .feeds-container-contents {
+        padding: 2% 2%;
+        overflow: auto;
       }
     }
   }
