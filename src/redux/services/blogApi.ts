@@ -4,10 +4,10 @@ const baseUrl = 'http://localhost:5000';
 
 export const blogApi = createApi({
   reducerPath: 'blogApi',
-  baseQuery: fetchBaseQuery({ baseUrl: `${baseUrl}/api/` }),
+  baseQuery: fetchBaseQuery({ baseUrl: `${baseUrl}/api/blogs` }),
   endpoints: (builder) => ({
     getBlogs: builder.query<any[], void>({
-      query: () => 'blogs',
+      query: () => 'getBlogs',
     }),
   }),
 });

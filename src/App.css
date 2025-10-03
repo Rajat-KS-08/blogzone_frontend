@@ -1,8 +1,15 @@
 #root {
-  max-width: 1280px;
+  max-width: 1280px;       /* Keep this for wide screens */
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;              /* Remove padding to avoid content shift */
   text-align: center;
+  min-height: 100vh !important;
+  min-width: 100vw !important;
+  width: 100%;
+  display: flex;           /* Add flex context to root */
+  align-items: center;     /* Center children vertically */
+  justify-content: center; /* Center children horizontally */
+  flex-direction: column;  /* Stack children vertically */
 }
 
 .logo {

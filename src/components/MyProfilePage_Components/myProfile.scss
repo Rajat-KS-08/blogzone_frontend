@@ -1,0 +1,153 @@
+//Imports
+@use "../../_variables" as *;
+
+//Profile widgets styles
+.profile-widgets {
+  padding: 1% 5%;
+  background-color: $fb-theme-blue;
+  box-shadow: 0 60px 12px rgba(33, 118, 255, 0.15);
+  .ant-row-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    .widget-container {
+      flex: 1;
+      .widget-card {
+        width: 100%;
+        cursor: pointer;
+        background-color: #e6f0ff;
+        max-height: 80%;
+        height: 160px;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        transition: all 0.3s ease-in-out;
+
+        .my-profile-widget,
+        .my-favorites-widget,
+        .my-blogs-widget {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+
+          .widget-title-text {
+            font-family: $secondary-font;
+            font-size: 18px;
+            font-weight: 700;
+            color: $primary-theme-color;
+          }
+        }
+
+        &:hover {
+          transform: scale(1.03);
+          background-color: #d6e8ff;
+          box-shadow: rgba(0, 0, 0, 0.45) 0px 8px 20px;
+        }
+      }
+    }
+  }
+}
+
+//User profile form styles
+.user-profile-form {
+  margin: auto;
+  max-width: 840px;
+  padding: 1.5% 1%;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+
+  .profile-form-first-col {
+    .upload-btn {
+      background-color: #f3f7fe;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+      border-radius: 6px;
+      border: none;
+
+      background: #6e6d70;
+      box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1),
+        inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5),
+        0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+      color: #dfdedf;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+
+      &:focus {
+        box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2),
+          0px 0.5px 1px rgba(0, 0, 0, 0.1),
+          0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+        outline: 0;
+      }
+    }
+  }
+
+  .profile-form-second-col {
+    padding-top: 2.6%;
+  }
+
+  .profile-form-submit-btn {
+    .ant-form-item-row {
+      width: 100%;
+      .ant-form-item-control-input-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        align-items: center;
+        .submit-btn,
+        .cancel-btn {
+          width: 30%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 6px 14px;
+          font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+          border-radius: 6px;
+          border: none;
+
+          background: #6e6d70;
+          box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1),
+            inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5),
+            0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+          color: #dfdedf;
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+
+          &:focus {
+            box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2),
+              0px 0.5px 1px rgba(0, 0, 0, 0.1),
+              0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+            outline: 0;
+          }
+
+          // Disabled state styles
+          &[disabled],
+          &.ant-btn[disabled] {
+            background-color: #d9d9d9 !important; // Light grey or your custom
+            color: #999 !important;
+            border-color: #d9d9d9 !important;
+            cursor: not-allowed;
+            font-family: $secondary-font;
+            font-weight: 500;
+          }
+        }
+        .cancel-btn {
+          background-color: #b6d3fe;
+          color: #6e6d70;
+          font-family: $secondary-font;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

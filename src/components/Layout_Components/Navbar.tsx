@@ -9,17 +9,28 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import { useState } from "react";
+import { logoutUser } from "../../apiServices/authService";
+import { logout } from "../../redux/slices/authReducer";
 import logo from "../../assets/logo.png";
 import "./layout.scss";
+import { useDispatch } from "react-redux";
 
 const { Header } = Layout;
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const dispatch = useDispatch();
 
-  const handleLogout = () => {
-    alert("Logging out...");
+  const handleLogout = async () => {
+    try {
+      await logoutUser();
+      dispatch(logout());
+      // window.location.href = "/login"; // redirect to login page
+      sessionStorage.clear();
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
   };
 
   const navItems = (
@@ -64,7 +75,7 @@ const Navbar = () => {
             <Link to="/" className="nav-link">
               <HomeOutlined /> Home
             </Link>
-            <Link to="/my_profile/123" className="nav-link">
+            <Link to="/my_profile/" className="nav-link">
               <UserOutlined /> My Profile
             </Link>
             <Link to="/settings" className="nav-link">
