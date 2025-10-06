@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useGetBlogsQuery } from "../../redux/services/blogApi";
+import {
+  useGetBlogsQuery,
+  useHitLikeOrDislikeBlogMutation,
+} from "../../redux/services/blogApi";
 import {
   List,
   Card,
@@ -13,26 +16,49 @@ import {
 import { LikeOutlined, DislikeOutlined, UserOutlined } from "@ant-design/icons";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { PacmanLoader } from "react-spinners";
+import { getTimeAgo, isUserIdPresent } from "../../helpers/genericHelpers";
 import "./homePage.scss";
 
 const { Text, Title, Paragraph } = Typography;
 
 interface BlogItem {
-  id: string | number;
+  id: string;
   blogTitle: string;
   blogContent: string;
   imageUrl?: string | string[];
-  likeCount?: number;
-  dislikeCount?: number;
+  likes?: string[] | [];
+  dislikes?: string[] | [];
   createdAt?: string;
-  authorName?: string;
+  profileName?: string;
+  userId: string;
+  profileImage?: string;
 }
 
 const BlogFeeds: React.FC = () => {
   const { data: blogData, isLoading, error } = useGetBlogsQuery();
+  const [hitLikeOrDislikeBlog] = useHitLikeOrDislikeBlogMutation();
   const [displayedBlogs, setDisplayedBlogs] = useState<BlogItem[]>([]);
   const [hasMore, setHasMore] = useState(true);
   const ITEMS_PER_PAGE = 100;
+
+  const handleLikeDislike = async (
+    blogId: string,
+    userId: string,
+    type: "like" | "dislike"
+  ) => {
+    const payload = { blogId: blogId, userId, type };
+    try {
+      await hitLikeOrDislikeBlog(payload).unwrap();
+    } catch (err) {
+      notification.error({
+        message: "Action Failed",
+        description:
+          "There was a problem processing your request. Please try again.",
+        placement: "topRight",
+        duration: 4,
+      });
+    }
+  };
 
   // Show error notification if there's an error fetching blogs
   useEffect(() => {
@@ -196,19 +222,44 @@ const BlogFeeds: React.FC = () => {
                         }}
                       >
                         <Space>
-                          <Avatar icon={<UserOutlined />} />
+                          <Avatar
+                            src={item?.profileImage || ""}
+                            icon={<UserOutlined />}
+                          />
                           <Text type="secondary">
-                            {item.authorName || "Unknown"}
+                            {item?.profileName || "Unknown"}
                           </Text>
                         </Space>
                         <Space size="large">
                           <Text type="secondary">
-                            <LikeOutlined /> {item.likeCount ?? 0}
+                            <LikeOutlined
+                              onClick={() =>
+                                handleLikeDislike(
+                                  item?.id,
+                                  item?.userId,
+                                  "like"
+                                )
+                              }
+                              className={`${isUserIdPresent(item?.userId, item?.likes) ? "liked" : ""}`}
+                            />{" "}
+                            {item.likes?.length ?? 0}
                           </Text>
                           <Text type="secondary">
-                            <DislikeOutlined /> {item.dislikeCount ?? 0}
+                            <DislikeOutlined
+                              onClick={() =>
+                                handleLikeDislike(
+                                  item?.id,
+                                  item?.userId,
+                                  "dislike"
+                                )
+                              }
+                              className={`${isUserIdPresent(item?.userId, item?.dislikes) ? "disliked" : ""}`}
+                            />{" "}
+                            {item.dislikes?.length ?? 0}
                           </Text>
-                          <Text type="secondary">🕒 {item.createdAt}</Text>
+                          <Text type="secondary">
+                            🕒 {getTimeAgo(item?.createdAt)}
+                          </Text>
                         </Space>
                       </div>
                     </div>

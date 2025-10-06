@@ -244,6 +244,16 @@
       border-radius: 8px;
       overflow-y: scroll;
 
+      .liked {
+        color: #1677ff;
+        font-size: 18px
+      }
+
+      .disliked {
+        color: #ff4d4f;
+        font-size: 18px
+      }
+
       .feeds-container-contents {
         padding: 2% 2%;
         overflow: auto;
