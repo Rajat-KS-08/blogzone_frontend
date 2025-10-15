@@ -1,9 +1,10 @@
 import axios from "axios";
 import { store } from "../redux/store";
 import { logout } from "../redux/slices/authReducer";
+import { API_URL } from "../apiConfig.ts";
 
 export const axiosAuthInstance = axios.create({
-    baseURL: "http://localhost:5000/api",
+    baseURL: `${API_URL}/api`,
     withCredentials: true,
 });
 
